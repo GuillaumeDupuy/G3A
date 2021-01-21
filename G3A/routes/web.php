@@ -19,7 +19,7 @@ Route::group([
     Route::post('/password_modification', 'App\Http\Controllers\UserAccountController@password_modification');
     Route::get('/password_modification', 'App\Http\Controllers\UserAccountController@form_password_modification');
     Route::get('/dashboard', 'App\Http\Controllers\UserAccountController@dashboard');
-    Route::get('signout', 'App\Http\Controllers\UserAccountController@signout');
+    Route::get('/signout', 'App\Http\Controllers\UserAccountController@signout');
 });
 
 Route::get('/', function () {
