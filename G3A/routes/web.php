@@ -13,6 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
+Route::group([
+    'middleware' => 'App\Http\Middleware\Auth',
+], function () {
+    Route::post('/password_modification', 'App\Http\Controllers\UserAccountController@password_modification');
+    Route::get('/password_modification', 'App\Http\Controllers\UserAccountController@form_password_modification');
+    Route::get('/dashboard', 'App\Http\Controllers\UserAccountController@dashboard');
+    Route::get('signout', 'App\Http\Controllers\UserAccountController@signout');
+});
+
+Route::get('/', function () {
     return view('index');
+});
+
+Route::get('/connexion', 'App\Http\Controllers\ConnexionController@form');
+
+Route::get('/inscription', 'App\Http\Controllers\InscriptionController@inscription');
+
+Route::post('/inscription', 'App\Http\Controllers\InscriptionController@formulaire');
+
+Route::post('/connexion', 'App\Http\Controllers\ConnexionController@connexion');
+
+Route::get('/users', 'App\Http\Controllers\UsersController@index');
+
+Route::get('/contact', function () {
+    return view('contact');
 });
