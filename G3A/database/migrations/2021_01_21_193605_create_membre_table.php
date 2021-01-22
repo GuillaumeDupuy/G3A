@@ -14,16 +14,16 @@ class CreateMembreTable extends Migration
     public function up()
     {
         Schema::create('membre', function (Blueprint $table) {
-            $table->id("id_membre")->INT();
-            $table->string('email')->VARCHAR(30)->UNIQUE();
-            $table->string("mdp")->VARCHAR(30);
-            $table->string("prenom")->VARCHAR(20);
-            $table->string("nom")->VARCHAR(20);
-            $table->string("dtn")->DATE();
-            $table->string("adresse")->VARCHAR(50);
-            $table->string("ville")->VARCHAR(30);
-            $table->string("code_postal")->NUM(5);
-            $table->string("soldes")->DEC(6, 2)->DEFAULT(0);
+            $table->integer("id_membre");
+            $table->string('email', 30)->UNIQUE();
+            $table->string("mdp", 30);
+            $table->string("prenom", 20);
+            $table->string("nom", 20);
+            $table->date("dtn");
+            $table->string("adresse", 50);
+            $table->string("ville", 30);
+            $table->string("code_postal", 5);
+            $table->decimal("soldes", 6, 2)->DEFAULT(0);
             $table->timestamps();
         });
     }

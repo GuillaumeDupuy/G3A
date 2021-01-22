@@ -14,11 +14,11 @@ class CreateLivraisonTable extends Migration
     public function up()
     {
         Schema::create('livraison', function (Blueprint $table) {
-            $table->string('mode_livraison')->VARCHAR(50);
-            $table->string("date_livraison")->DATE();
-            $table->string("status")->VARCHAR(30);
-            $table->string("adresse_facturation")->VARCHAR(50);
-            $table->string("num_commande")->INT();
+            $table->string('mode_livraison',50);
+            $table->date("date_livraison");
+            $table->string("status",30);
+            $table->string("adresse_facturation",50);
+            $table->integer("num_commande");
             $table->timestamps();
         });
     }

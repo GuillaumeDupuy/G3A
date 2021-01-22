@@ -14,11 +14,11 @@ class CreateCommandeTable extends Migration
     public function up()
     {
         Schema::create('commande', function (Blueprint $table) {
-            $table->id("id_membre")->INT();
-            $table->string("num_commande")->INT();
-            $table->string("date_commande")->DATE();
-            $table->string("prix_total")->NUM(6, 2);
-            $table->string("status")->VARCHAR(30);
+            $table->integer("id_membre");
+            $table->integer("num_commande");
+            $table->date("date_commande");
+            $table->decimal("prix_total",6, 2);
+            $table->string("status",30);
             $table->timestamps();
         });
     }

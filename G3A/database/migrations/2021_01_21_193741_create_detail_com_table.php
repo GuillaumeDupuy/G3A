@@ -14,10 +14,10 @@ class CreateDetailComTable extends Migration
     public function up()
     {
         Schema::create('detail_com', function (Blueprint $table) {
-            $table->id("id_produit")->INT();
-            $table->string("num_commande")->VARCHAR(20);
-            $table->string("quantité")->NUM(2)->DEFAULT(1);
-            $table->string("prix_total")->NUM(3);
+            $table->integer("id_produit");
+            $table->string("num_commande", 20);
+            $table->integer("quantité")->DEFAULT(1);
+            $table->integer("prix_total");
             $table->timestamps();
         });
     }

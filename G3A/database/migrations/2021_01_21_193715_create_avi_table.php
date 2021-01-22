@@ -14,9 +14,9 @@ class CreateAviTable extends Migration
     public function up()
     {
         Schema::create('avi', function (Blueprint $table) {
-            $table->id("id_produit")->INT();
-            $table->string("id_avis")->VARCHAR(300);
-            $table->string("note")->NUM(2);
+            $table->integer("id_produit");
+            $table->string("id_avis");
+            $table->integer("note");
             $table->timestamps();
         });
     }
