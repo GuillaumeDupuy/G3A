@@ -14,12 +14,13 @@ class CreateCarteTable extends Migration
     public function up()
     {
         Schema::create('carte', function (Blueprint $table) {
-            $table->integer("id_membre");
+            $table->id('carte');
             $table->string("nom", 30);
             $table->string("prenom", 30);
             $table->integer("numero");
             $table->date("date");
             $table->integer("crypto");
+            $table->foreignId("id_membre");
             $table->timestamps();
         });
     }

@@ -14,8 +14,8 @@ class CreateCommandeTable extends Migration
     public function up()
     {
         Schema::create('commande', function (Blueprint $table) {
-            $table->integer("id_membre");
-            $table->integer("num_commande");
+            $table->id("num_commande");
+            $table->foreignId("id_membre");
             $table->date("date_commande");
             $table->decimal("prix_total",6, 2);
             $table->string("status",30);

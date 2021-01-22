@@ -36,6 +36,8 @@ Route::post('/connexion', 'App\Http\Controllers\ConnexionController@connexion');
 
 Route::get('/users', 'App\Http\Controllers\UsersController@index');
 
+Route::get('/catalogue', 'App\Http\Controllers\CatalogueController@catalogue');
+
 Route::get('/contact', function () {
     return view('contact');
 });

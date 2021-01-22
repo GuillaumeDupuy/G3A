@@ -14,10 +14,10 @@ class CreatePaiementTable extends Migration
     public function up()
     {
         Schema::create('paiement', function (Blueprint $table) {
-            $table->integer("id_paiement");
+            $table->id("id_paiement");
             $table->string('mode_paiement',20);
-            $table->integer("num_commande");
             $table->decimal("montant",6, 2);
+            $table->foreignId("num_commande");
             $table->timestamps();
         });
     }
