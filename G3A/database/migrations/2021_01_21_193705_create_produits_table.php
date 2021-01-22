@@ -21,6 +21,7 @@ class CreateProduitsTable extends Migration
             $table->string("description");
             $table->string("plateformes", 100);
             $table->string("categorie", 50);
+            $table->date("date_sortie");
             $table->integer("note");
             $table->integer("quantite");
             $table->string("photo", 100);
