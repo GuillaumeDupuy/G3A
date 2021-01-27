@@ -1,7 +1,6 @@
 @extends('layout')
 
 @section('contenu')
-<h1>Welcome {{$user->name}}</h1>
 
 <p>Nombre de membres</p>
 
@@ -11,48 +10,8 @@
 <p>Les revenus du site totaux</p>
 <p>Les revenus du site sur les 7 derniers jours</p>
 
-<?php
-
-if (!empty($_POST)) {
-
-
-    //***************************************** */
-    //Modification Base de données
-    //***************************************** */
-    if (!empty($_GET['modification'])) {
-        $id = $_GET['modification'];
-        $pdo->exec("UPDATE produits SET nom = \"$_POST[nom]\" WHERE id_produit= $id");
-        $pdo->exec("UPDATE produits SET date_sortie = \"$_POST[date_sortie]\"  WHERE id_produit= $id");
-        $pdo->exec("UPDATE produits SET description = \"$_POST[description]\" WHERE id_produit= $id");
-        $pdo->exec("UPDATE produits SET quantité = \"$_POST[quantité]\" WHERE id_produit= $id");
-        $pdo->exec("UPDATE produits SET catégorie = \"$_POST[catégorie]\" WHERE id_produit= $id");
-        $pdo->exec("UPDATE produits SET prix = \"$_POST[prix]\" WHERE id_produit= $id");
-        $pdo->exec("UPDATE produits SET plateformes = \"$_POST[plateformes]\"  WHERE id_produit= $id");
-        $pdo->exec("UPDATE produits SET note = \"$_POST[note]\" WHERE id_produit= $id");
-
-        //***************************************** */
-        //Ajout à la Base de données
-        //***************************************** */      
-    } else {
-        $requeteSQL = "INSERT INTO produits (nom, date_sortie, description, quantité, catégorie, prix, plateformes, note ) VALUE ('$_POST[nom]', '$_POST[date_sortie]', '$_POST[description]','$_POST[quantité]','$_POST[catégorie]','$_POST[prix]','$_POST[plateformes]','$_POST[note]')";
-        $result = $pdo->exec($requeteSQL);
-    }
-
-    //***************************************** */
-    //Suppression Base de données
-    //***************************************** */    
-} else if (!empty($_GET)) {
-    if (!empty($_GET['delete'])) {
-        $to_suppr = $_GET['delete'];
-        $pdo->exec("DELETE FROM produits WHERE id_produit = $to_suppr ");
-    }
-    if (!empty($_GET['modification'])) {
-
-        echo "en cours de modification de l'experience numero " . $_GET['modification'];
-    }
-}
-
-?>
+<p>Achat de jeux récents</p>
+<p>Factures</p>
 
 <form method="POST" action="" enctype='multipart/form-data'>
 
@@ -63,7 +22,7 @@ if (!empty($_POST)) {
 
     <div class="resume-item d-flex flex-column  ">
         <label for="date_sortie">Date de sortie</label>
-        <textarea rows="1" class="form-control" id="date_sortie" name="date_sortie"></textarea>
+        <textarea type="date" rows="1" class="form-control" id="date_sortie" name="date_sortie"></textarea>
     </div>
 
     <div class="resume-item d-flex flex-column  ">
@@ -102,7 +61,7 @@ if (!empty($_POST)) {
             <input type="file" name="img[]" class="file" accept="image/*">
         </form>
     </div>
-    <br><br>
+    <br>
 
     <button type="submit" class="btn btn-primary">Enregistrer</button>
 
@@ -128,5 +87,35 @@ if (!empty($_POST)) {
         });
     });
 </script>
+
+<br><br>
+<p>---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
+<br>
+
+<form method="POST" action="" enctype='multipart/form-data'>
+
+    <div class="form-group">
+        <label for="prenom">Prenom</label>
+        <input type="texte" class="form-control" id="prenom" name="prenom">
+    </div>
+
+    <div class="resume-item d-flex flex-column  ">
+        <label for="nom">Nom</label>
+        <textarea rows="1" class="form-control" id="nom" name="nom"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="texte" class="form-control" id="email" name="email">
+    </div>
+
+    <div class="form-group">
+        <label for="dtn">Date de naissance</label>
+        <textarea rows="1" class="form-control" id="dtn" name="dtn"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+</form>
 
 @endsection

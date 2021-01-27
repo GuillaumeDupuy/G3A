@@ -16,15 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth',
 ], function () {
-    Route::post('/password_modification', 'App\Http\Controllers\UserAccountController@password_modification');
-    Route::get('/password_modification', 'App\Http\Controllers\UserAccountController@form_password_modification');
-    Route::get('/dashboard', 'App\Http\Controllers\UserAccountController@dashboard');
+    Route::post('/password_modification', 'App\Http\Controllers\UserAccountController@mdp_confirmation');
+    Route::get('/password_modification', 'App\Http\Controllers\UserAccountController@form_mdp_confirmation');
+    
     Route::get('/signout', 'App\Http\Controllers\UserAccountController@signout');
 });
 
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/dashboard', 'App\Http\Controllers\UserAccountController@dashboard');
 
 Route::get('/connexion', 'App\Http\Controllers\ConnexionController@form');
 

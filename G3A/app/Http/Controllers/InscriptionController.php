@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User as User;
+use App\Models\membre;
 
 class InscriptionController extends Controller
 {
@@ -18,17 +18,30 @@ class InscriptionController extends Controller
 
         request()->validate([
             'email' => ['required', 'email'],
-            'password' => ['required', 'confirmed', 'min:8'],
-            'password_confirmation' => ['required'],
-            'name' => ['required'],
-
+            'mdp' => ['required', 'confirmed', 'min:8'],
+            'mdp_confirmation' => ['required'],
+            'prenom' => ['required'],
+            'nom' => ['required'],
+            'dtn' => ['required'],
+            'adresse' => ['required'],
+            'ville' => ['required'],
+            'code_postal' => ['required'],
+            'soldes' => ['required'],
         ]);
 
-        $user = User::create([
+
+        $membre = membre::create([
             'email' => request('email'),
-            'password' => bcrypt(request('password')),
-            'name' => request('name'),
+            'mdp' => request('mdp'),
+            'prenom' => request('prenom'),
+            'nom' => request('nom'),
+            'dtn' => request('dtn'),
+            'adresse' => request('adresse'),
+            'ville' => request('ville'),
+            'code_postal' => request('code_postal'),
+            'soldes' => request('soldes'),
         ]);
+
         return "Your email is " . request('email');
     }
 }

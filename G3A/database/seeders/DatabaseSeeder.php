@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\produit;
+use App\Models\membre;
 use Carbon\Carbon;
 
 class DatabaseSeeder extends Seeder
@@ -26,6 +27,18 @@ class DatabaseSeeder extends Seeder
             'categorie' => "FPS",
             'note' => 20,
             'photo' => "pathtophoto"
-            ]);
+        ]);
+
+        membre::create([
+            'email' => 'guillaume.dupuy@ynov.com',
+            'mdp' => 'test1234',
+            'prenom' => 'Guillaume',
+            'nom' => 'Dupuy',
+            'dtn' => Carbon::create('2001', '20', '07'),
+            'adresse' => '18 avenue du marechal joffre',
+            'ville' => 'Neuilly-Plaisance',
+            'code_postal' => '93360',
+            'soldes' => 78
+        ]);
     }
 }

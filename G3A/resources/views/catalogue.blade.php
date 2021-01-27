@@ -2,22 +2,23 @@
 
 @section('contenu')
 
-    <div class="container bootstrap snipets">
-    <h1 class="text-center text-muted">Catalogue Jeux</h1>
-    <div class="row flow-offset-1">
+<div class="container bootstrap snipets">
+  <h1 class="text-center text-muted">Catalogue Jeux</h1>
+  <div class="row flow-offset-1">
     <?php
     $base_de_donnee = DB::select("SELECT *  FROM produits ORDER BY date_sortie");
     foreach ($base_de_donnee as $produits) { ?>
-     <div class="col-xs-6 col-md-4">
-       <div class="product tumbnail thumbnail-3"><a href="#"><img src="https://via.placeholder.com/350x280/87CEFA/000000<?php // echo $produits->photo ?>" alt=""></a>
-         <div class="caption">
-           <h6><a href="#"><?php echo $produits->nom ?></a></h6><span class="price">
+      <div class="col-xs-6 col-md-4">
+        <div class="product tumbnail thumbnail-3"><a href="#"><img src="https://via.placeholder.com/350x280/87CEFA/000000<?php // echo $produits->photo 
+                                                                                                                          ?>" alt=""></a>
+          <div class="caption">
+            <h6><a href="#"><?php echo $produits->nom ?></a></h6><span class="price">
             </span><span class="price"><?php echo $produits->prix ?></span>
-         </div>
-       </div>
-     </div>
-     <?php } ?>
-     <!-- <div class="col-xs-6 col-md-4">
+          </div>
+        </div>
+      </div>
+    <?php } ?>
+    <!-- <div class="col-xs-6 col-md-4">
        <div class="product tumbnail thumbnail-3"><a href="#"><img src="https://via.placeholder.com/350x280/87CEFA/000000" alt=""></a>
          <div class="caption">
            <h6><a href="#">Short Sleeve T-Shirt</a></h6><span class="price">
@@ -79,6 +80,7 @@
          </div>
        </div>
      </div>
-   </div>
- </div> -->
- @endsection
+   </div> -->
+  </div>
+</div>
+@endsection

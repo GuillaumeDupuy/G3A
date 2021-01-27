@@ -41,12 +41,19 @@
     {{csrf_field()}}
 
     <div>
-        <input type="string" name="name" placeholder="Name">
-        @if($errors->has('name'))
+        <input type="string" name="prenom" placeholder="Prenom">
+        @if($errors->has('prenom'))
         <small id="emailHelp" class="form-text text-muted">{{$errors->first('name')}}</small>
         @endif
     </div>
 
+    <div>
+        <input type="string" name="nom" placeholder="Nom">
+        @if($errors->has('nom'))
+        <small id="emailHelp" class="form-text text-muted">{{$errors->first('nom')}}</small>
+        @endif
+    </div>
+    
     <div>
         <input type="email" name="email" placeholder="Email">
         @if($errors->has('email'))
@@ -56,21 +63,49 @@
     </div>
 
     <div>
-        <input type="password" name="password" placeholder="Password">
-        @if($errors->has('password'))
-        <small id="emailHelp" class="form-text text-muted">{{$errors->first('password')}}</small>
+        <input type="date" name="dtn" placeholder="Date de naissance">
+        @if($errors->has('dtn'))
+        <small id="emailHelp" class="form-text text-muted">{{$errors->first('dtn')}}</small>
         @endif
     </div>
 
     <div>
-        <input type="password" name="password_confirmation" placeholder="Confirmation password">
-        @if($errors->has('password_confirmation'))
-        <small id="emailHelp" class="form-text text-muted">{{$errors->first('password_confirmation')}}</small>
+        <input type="string" name="adresse" placeholder="Adresse">
+        @if($errors->has('adresse'))
+        <small id="emailHelp" class="form-text text-muted">{{$errors->first('adresse')}}</small>
         @endif
     </div>
 
     <div>
-        <input type="submit" value="Valider">
+        <input type="string" name="ville" placeholder="Ville">
+        @if($errors->has('ville'))
+        <small id="emailHelp" class="form-text text-muted">{{$errors->first('ville')}}</small>
+        @endif
+    </div>
+
+    <div>
+        <input type="string" name="code_postal" placeholder="Code postal">
+        @if($errors->has('code_postal'))
+        <small id="emailHelp" class="form-text text-muted">{{$errors->first('code_postal')}}</small>
+        @endif
+    </div>
+
+    <div>
+        <input type="password" name="mdp" placeholder="Mot de passe">
+        @if($errors->has('mdp'))
+        <small id="emailHelp" class="form-text text-muted">{{$errors->first('mdp')}}</small>
+        @endif
+    </div>
+
+    <div>
+        <input type="password" name="mdp_confirmation" placeholder="Confirmation mot de passe">
+        @if($errors->has('mdp_confirmation'))
+        <small id="emailHelp" class="form-text text-muted">{{$errors->first('mdp_confirmation')}}</small>
+        @endif
+    </div>
+
+    <div>
+        <input type="submit" value="Inscription">
     </div>
 
 </form>

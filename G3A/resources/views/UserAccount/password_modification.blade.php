@@ -44,17 +44,17 @@
 
     <div class="form-group">
         <label for="InputPassword">New Password</label>
-        <input type="password" name="password" placeholder="Password" id="InputPassword">
-        @if($errors->has('password'))
-        <small id="emailHelp" class="form-text text-muted">{{$errors->first('password')}}</small>
+        <input type="password" name="mdp" placeholder="Mot de passe" id="InputPassword">
+        @if($errors->has('mdp'))
+        <small id="emailHelp" class="form-text text-muted">{{$errors->first('mdp')}}</small>
         @endif
     </div>
 
     <div class="form-group">
         <label for="InputConfirmationPassword">Confirmation Password</label>
-        <input type="password" name="password_confirmation" placeholder="Confirmation password" id="InputConfirmationPassword">
-        @if($errors->has('password_modification'))
-        <small id="emailHelp" class="form-text text-muted">{{$errors->first('password_modification')}}</small>
+        <input type="password" name="mdp_confirmation" placeholder="Confirmation password" id="InputConfirmationPassword">
+        @if($errors->has('mdp_confirmation'))
+        <small id="emailHelp" class="form-text text-muted">{{$errors->first('mdp_confirmation')}}</small>
         @endif
     </div>
 
