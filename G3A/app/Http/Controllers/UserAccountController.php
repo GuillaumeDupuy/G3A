@@ -3,25 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\membre;
 
 class UserAccountController extends Controller
 {
-    public  function dashboard()
+    public  function profil()
     {
-        return view('UserAccount/dashboard', [
-            'membre' => auth()->user(),
+        return view('profil', [
+            'user' => auth()->user(),
         ]);
     }
 
-    public function signout()
+    public function deconnexion()
     {
         auth()->logout();
 
         return redirect('/connexion');
     }
 
-    public function form_mdp_confirmation()
+    public function form_password_modification()
     {
         return view('UserAccount/password_modification');
 
@@ -29,21 +28,21 @@ class UserAccountController extends Controller
         return redirect('/connexion');
     }
 
-    public function mdp_confirmation()
+    public function password_modification()
     {
         request()->validate([
-            'mdp' => ['required', 'min:8', 'confirmed'],
-            'mdp_confirmation' => ['required']
+            'password' => ['required', 'min:8', 'confirmed'],
+            'password_confirmation' => ['required']
         ]);
 
-        $membre = auth()->user();
-        $membre->mdp = bcrypt(request('mdp'));
-        $membre->save();
+        $user = auth()->user();
+        $user->password = bcrypt(request('password'));
+        $user->save();
 
         /*auth()->user()->update([
             'password' => bcrypt(request('password')),
         ]);*/
 
-        return redirect('/dashboard');
+        return redirect('/profil');
     }
 }

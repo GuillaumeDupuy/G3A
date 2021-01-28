@@ -16,6 +16,7 @@ class CreateAviTable extends Migration
         Schema::create('avi', function (Blueprint $table) {
             $table->id("id");
             $table->foreignId("id_produit");
+            $table->foreignId("id_user");
             $table->string("description");
             $table->integer("note");
             $table->dateTime('date_avi')->default(\Carbon\Carbon::now());

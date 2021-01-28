@@ -23,10 +23,12 @@
                                 </div>
 
                                 <input type="hidden" name="search_param" value="all" id="search_param">
-                                <input type="text" class="form-control" name="x" placeholder="Search term...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search">Rechercher</span></button>
-                                </span>
+                                <form action="/catalogue/rechercher" method="GET">
+                                    <input type="text" class="form-control" name="recherche" placeholder="Jeu...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search">Rechercher</span></button>
+                                    </span>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -46,20 +48,18 @@
 
                 <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/contact')); ?>">Contact</a></button>
 
-                <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/panier')); ?>">panier <span class=" badge badge-pill badge-dark"> <?php echo e(Cart::count()); ?></span></a></button>
-
             </ul>
             <?php else: ?>
             <ul>
-                <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/password_modification')); ?>">Change Password</a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/users')); ?>">Users</a></button>
+                <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/profil')); ?>">Profil</a></button>
 
                 <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/catalogue')); ?>">Tout les articles</a></button>
 
-                <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/signout')); ?>">Sign out</a></button>
+                <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/contact')); ?>">Contact</a></button>
+
+                <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/panier')); ?>">Panier <span class=" badge badge-pill badge-dark"> <?php echo e(Cart::count()); ?></span></a></button>
+
+                <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/deconnexion')); ?>">Deconnexion</a></button>
 
             </ul>
             <?php endif; ?>

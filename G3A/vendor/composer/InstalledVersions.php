@@ -1,5 +1,15 @@
 <?php
 
+
+
+
+
+
+
+
+
+
+
 namespace Composer;
 
 use Composer\Semver\VersionParser;
@@ -14,12 +24,12 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '3aacd701b49934995dfc2f21fce8ada02ac9ac5a',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -469,6 +479,15 @@ private static $installed = array (
         0 => '*',
       ),
     ),
+    'laracasts/flash' => 
+    array (
+      'pretty_version' => '3.2',
+      'version' => '3.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '76c2e200498795bdbeda97b682536130316e8b97',
+    ),
     'laravel/framework' => 
     array (
       'pretty_version' => 'v8.22.1',
@@ -480,12 +499,12 @@ private static $installed = array (
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '3aacd701b49934995dfc2f21fce8ada02ac9ac5a',
     ),
     'laravel/sail' => 
     array (
@@ -1017,15 +1036,6 @@ private static $installed = array (
       array (
       ),
       'reference' => '2acf168de78487db620ab4bc524135a13cfe6745',
-    ),
-    'stripe/stripe-php' => 
-    array (
-      'pretty_version' => 'v7.69.0',
-      'version' => '7.69.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '6716cbc4ebf8cba7d45374a059c7c6e5bf53277d',
     ),
     'swiftmailer/swiftmailer' => 
     array (

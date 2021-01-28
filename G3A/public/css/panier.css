@@ -1,3 +1,13 @@
+a.continuer{
+    text-decoration: none;
+}
+.form-panier{
+    margin-top:15px;
+}
+.container-btn{
+    display:flex;
+    justify-content: center;
+}
 .bloc_left_price {
     color: #c01508;
     text-align: center;

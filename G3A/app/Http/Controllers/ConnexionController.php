@@ -4,14 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ConnexionController extends Controller
+class connexionController extends Controller
 {
-    public function form()
-    {
-        return view('Connexion/connexion');
+    public  function connexion(){
+        return view('connexion');
     }
 
-    public function connexion()
+    public function formulaire()
     {
         request()->validate([
             'email' => ['required', 'email'],
@@ -24,10 +23,10 @@ class ConnexionController extends Controller
         ]);
 
         if ($result) {
-            return redirect('/dashboard');
+            return redirect('/catalogue');
         }
         return back()->withErrors([
-            'email' => "The credentials do match ! Try again"
+            'email' => "Les identifiants de connexion sont incorrects"
         ]);
     }
 }

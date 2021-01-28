@@ -12,6 +12,7 @@ class PanierController extends Controller
 {
     public function panier()
     {
+        //dd(Cart::content());
         return view("panier");
     }
 
@@ -26,13 +27,29 @@ class PanierController extends Controller
     }
     public function store(Request $request)
     {
+        //Pour ne pas avoir de doublon
+        // $doublon = Cart::search(function ($cartItem, $rowId) use ($request){
+        //     return $cartItem->id = $request->produit;
+        // });
+
+        // if(empty($doublon)){
+        //     return back()->with('success', 'Le produit a déjà été ajouté au panier');
+        // }
         $produit = produit::find($request->produit);
         Cart::add($produit->id, $produit->nom, 1, $produit->prix)
         ->associate('App\Models\produit');
 
         return back()->with('success', 'Le produit a été ajouté au panier');
     }
-   
 
-    
+    public function supprimer($rowId){
+        Cart::remove($rowId);
+        return back()->with('success', 'Le produit a été supprimé.');
+    }
+
+    public function supprimer_cart()
+    {
+        Cart::destroy();
+        return back()->with('success', 'votre panier a bien été vidé');
+    }
 }

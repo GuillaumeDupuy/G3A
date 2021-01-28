@@ -30,4 +30,18 @@ class CatalogueController extends Controller
 
         ]);
     }
+
+    public function rechercher()
+    {
+        $produits = produit::all();
+        if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
+            $recherche = htmlspecialchars($_GET['recherche']);
+            $produits = $produits->where('nom', '=', $recherche);
+        if($articles->rowCount() == 0) {
+            $produits = $produits->where('nom', 'like', '%'.$recherche.'%'); 
+
+        return view('catalogue', compact('produits'));
+    }
+}
+    }
 }

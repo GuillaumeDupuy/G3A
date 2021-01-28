@@ -20,7 +20,7 @@ class CreateCarteTable extends Migration
             $table->integer("numero");
             $table->date("date");
             $table->integer("crypto");
-            $table->foreignId("id_membre");
+            $table->foreignId("id_user");
             $table->timestamps();
         });
     }

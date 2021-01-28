@@ -1,6 +1,5 @@
 
 
-
 <?php $__env->startSection('contenu'); ?>
 
 <div class="container-fluid mt-3">
