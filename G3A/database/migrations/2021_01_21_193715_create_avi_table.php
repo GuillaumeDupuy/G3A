@@ -14,9 +14,11 @@ class CreateAviTable extends Migration
     public function up()
     {
         Schema::create('avi', function (Blueprint $table) {
-            $table->id("id_avis");
+            $table->id("id");
             $table->foreignId("id_produit");
+            $table->string("description");
             $table->integer("note");
+            $table->dateTime('date_avi')->default(\Carbon\Carbon::now());
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ class CreateLivraisonTable extends Migration
     public function up()
     {
         Schema::create('livraison', function (Blueprint $table) {
-            $table->id('id_livraison');
+            $table->id('id');
             $table->string('mode_livraison',50);
             $table->date("date_livraison");
             $table->string("status",30);

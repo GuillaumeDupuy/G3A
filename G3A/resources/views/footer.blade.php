@@ -16,6 +16,6 @@
 
 <article>
     <footer>
-        <p>© 2018 LARAVEL</p>
+        <p>© 2021 G3A</p>
     </footer>
 </article>

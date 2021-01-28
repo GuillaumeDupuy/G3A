@@ -4,19 +4,20 @@
 <form class="form_contact" action="#" method="post">
 
     <div>
-        <input type="string" name="nom" placeholder="Nom">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="user_name">
+    </div>
+    <div>
+        <label for="mail">E-mail :</label>
+        <input type="email" id="mail" name="user_mail">
+    </div>
+    <div>
+        <label for="msg">Message :</label>
+        <textarea id="msg" name="user_message"></textarea>
     </div>
 
-    <div>
-        <input type="string" name="email" placeholder="Email">
-    </div>
-
-    <div>
-        <textarea id="msg" name="msg" placeholder="Message" rows="3" cols="48"></textarea>
-    </div>
-
-    <div>
-        <input type="submit" value="Envoyer le message"></input>
+    <div class="button">
+        <button type="submit">Envoyer le message</button>
     </div>
 
 </form>
@@ -24,7 +25,7 @@
 <style>
     .form_contact {
         /* Uniquement centrer le formulaire sur la page */
-        margin: 1em auto 2em;
+        margin: 0 auto;
         width: 400px;
         /* Encadré pour voir les limites du formulaire */
         padding: 1em;
@@ -36,21 +37,48 @@
         margin-top: 1em;
     }
 
-    input {
+    label {
+        /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
+        display: inline-block;
+        width: 90px;
+        text-align: right;
+    }
+
+    input,textarea {
         /* Pour s'assurer que tous les champs texte ont la même police.
      Par défaut, les textarea ont une police monospace */
         font: 1em sans-serif;
 
         /* Pour que tous les champs texte aient la même dimension */
-        width: 365px;
+        width: 300px;
         box-sizing: border-box;
 
         /* Pour harmoniser le look & feel des bordures des champs texte */
         border: 1px solid #999;
     }
 
-    input:focus {
+    input:focus,textarea:focus {
         /* Pour souligner légèrement les éléments actifs */
         border-color: #000;
+    }
+
+    textarea {
+        /* Pour aligner les champs texte multi‑ligne avec leur étiquette */
+        vertical-align: top;
+
+        /* Pour donner assez de place pour écrire du texte */
+        height: 5em;
+    }
+
+    .button {
+        /* Pour placer le bouton à la même position que les champs texte */
+        padding-left: 90px;
+        /* même taille que les étiquettes */
+    }
+
+    button {
+        /* Cette marge supplémentaire représente grosso modo le même espace que celui
+     entre les étiquettes et les champs texte */
+        margin-left: .5em;
     }
 </style>

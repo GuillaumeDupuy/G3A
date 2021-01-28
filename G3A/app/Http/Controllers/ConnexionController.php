@@ -15,12 +15,12 @@ class ConnexionController extends Controller
     {
         request()->validate([
             'email' => ['required', 'email'],
-            'mdp' => ['required', 'min:8'],
+            'password' => ['required', 'min:8'],
         ]);
 
         $result = auth()->attempt([
             'email' => request('email'),
-            'mdp' => request('mdp'),
+            'password' => request('password'),
         ]);
 
         if ($result) {

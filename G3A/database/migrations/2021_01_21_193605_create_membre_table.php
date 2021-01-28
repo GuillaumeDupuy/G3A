@@ -13,7 +13,7 @@ class CreateMembreTable extends Migration
      */
     public function up()
     {
-        Schema::create('membres', function (Blueprint $table) {
+        Schema::create('membre', function (Blueprint $table) {
             $table->id("id_membre");
             $table->string('email', 30)->UNIQUE();
             $table->string("mdp", 30);
@@ -35,6 +35,6 @@ class CreateMembreTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('membres');
+        Schema::dropIfExists('membre');
     }
 }

@@ -1,47 +1,50 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Models;
 
-use Illuminate\Http\Request;
-use App\Models\membre;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\Membre as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class InscriptionController extends Controller
+class membre extends Model
 {
+    use HasFactory, Notifiable;
 
-    public  function inscription()
-    {
-        return view('inscription');
-    }
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'nom',
+        'prenom',
+        'email',
+        'mdp',
+        'dtn',
+        'adresse',
+        'ville',
+        'code_postal',
+        'soldes',
+    ];
 
-    public function formulaire()
-    {
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'mdp',
+        'remember_token',
+    ];
 
-        request()->validate([
-            'email' => ['required', 'email'],
-            'mdp' => ['required', 'confirmed', 'min:8'],
-            'mdp_confirmation' => ['required'],
-            'prenom' => ['required'],
-            'nom' => ['required'],
-            'dtn' => ['required'],
-            'adresse' => ['required'],
-            'ville' => ['required'],
-            'code_postal' => ['required'],
-            'soldes' => ['required'],
-        ]);
-
-
-        $membre = membre::create([
-            'email' => request('email'),
-            'mdp' => request('mdp'),
-            'prenom' => request('prenom'),
-            'nom' => request('nom'),
-            'dtn' => request('dtn'),
-            'adresse' => request('adresse'),
-            'ville' => request('ville'),
-            'code_postal' => request('code_postal'),
-            'soldes' => request('soldes'),
-        ]);
-
-        return "Your email is " . request('email');
-    }
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
 }

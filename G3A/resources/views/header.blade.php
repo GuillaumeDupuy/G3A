@@ -46,14 +46,14 @@
 
                 <button class="btn btn-outline-success" type="button"><a href="{{url('/contact')}}">Contact</a></button>
 
+                <button class="btn btn-outline-success" type="button"><a href="{{url('/panier')}}">panier <span class=" badge badge-pill badge-dark"> {{ Cart::count() }}</span></a></button>
+
             </ul>
             @else
             <ul>
                 <button class="btn btn-outline-success" type="button"><a href="{{url('/dashboard')}}">Dashboard</a></button>
 
                 <button class="btn btn-outline-success" type="button"><a href="{{url('/password_modification')}}">Change Password</a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="{{url('/users')}}">Users</a></button>
 
                 <button class="btn btn-outline-success" type="button"><a href="{{url('/catalogue')}}">Tout les articles</a></button>
 

@@ -14,7 +14,7 @@ class CreatePaiementTable extends Migration
     public function up()
     {
         Schema::create('paiement', function (Blueprint $table) {
-            $table->id("id_paiement");
+            $table->id("id");
             $table->string('mode_paiement',20);
             $table->decimal("montant",6, 2);
             $table->foreignId("num_commande");

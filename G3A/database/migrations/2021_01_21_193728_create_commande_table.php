@@ -18,7 +18,7 @@ class CreateCommandeTable extends Migration
             $table->foreignId("id_membre");
             $table->date("date_commande");
             $table->decimal("prix_total",6, 2);
-            $table->string("status",30);
+            $table->string("statut",30);
             $table->timestamps();
         });
     }
