@@ -40,10 +40,10 @@
 
     {{csrf_field()}}
 
-    <h1>Change Password</h1>
+    <h3>Modification de mot de passe</h3>
 
     <div class="form-group">
-        <label for="InputPassword">New Password</label>
+        <label for="InputPassword">Nouveau Mot de passe</label>
         <input type="password" name="mdp" placeholder="Mot de passe" id="InputPassword">
         @if($errors->has('mdp'))
         <small id="emailHelp" class="form-text text-muted">{{$errors->first('mdp')}}</small>
@@ -51,7 +51,7 @@
     </div>
 
     <div class="form-group">
-        <label for="InputConfirmationPassword">Confirmation Password</label>
+        <label for="InputConfirmationPassword">Confirmation mot de passe</label>
         <input type="password" name="mdp_confirmation" placeholder="Confirmation password" id="InputConfirmationPassword">
         @if($errors->has('mdp_confirmation'))
         <small id="emailHelp" class="form-text text-muted">{{$errors->first('mdp_confirmation')}}</small>

@@ -16,6 +16,6 @@
 
 <article>
     <footer>
-        <p>© 2018 LARAVEL</p>
+        <p>© 2021 G3A</p>
     </footer>
 </article><?php /**PATH D:\Ynov\B2\Projet B2\Projet Dev Web\projet_dev_web_b2\G3A\resources\views/footer.blade.php ENDPATH**/ ?>

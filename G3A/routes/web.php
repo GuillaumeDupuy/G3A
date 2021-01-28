@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth',
 ], function () {
-    Route::post('/password_modification', 'App\Http\Controllers\UserAccountController@password_modification');
-    Route::get('/password_modification', 'App\Http\Controllers\UserAccountController@form_password_modification');
+    Route::post('/password_modification', 'App\Http\Controllers\UserAccountController@mdp_modification');
+    Route::get('/password_modification', 'App\Http\Controllers\UserAccountController@form_mdp_modification');
     Route::get('/dashboard', 'App\Http\Controllers\UserAccountController@dashboard');
     Route::get('/signout', 'App\Http\Controllers\UserAccountController@signout');
 });
@@ -33,7 +33,7 @@ Route::get('/contact', function () {
 Route::get('/produit/{id}', [
     'as' => 'produit',
     'uses' => '\App\Http\Controllers\ProduitController@produit'
-] );
+]);
 
 Route::get('/connexion', 'App\Http\Controllers\ConnexionController@form');
 

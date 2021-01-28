@@ -46,14 +46,14 @@
 
                 <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/contact')); ?>">Contact</a></button>
 
+                <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/panier')); ?>">panier <span class=" badge badge-pill badge-dark"> <?php echo e(Cart::count()); ?></span></a></button>
+
             </ul>
             <?php else: ?>
             <ul>
                 <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/dashboard')); ?>">Dashboard</a></button>
 
                 <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/password_modification')); ?>">Change Password</a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/users')); ?>">Users</a></button>
 
                 <button class="btn btn-outline-success" type="button"><a href="<?php echo e(url('/catalogue')); ?>">Tout les articles</a></button>
 
