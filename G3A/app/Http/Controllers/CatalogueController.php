@@ -7,41 +7,43 @@ use App\Models\produit;
 
 class CatalogueController extends Controller
 {
-    public function catalogue() {
+    public function catalogue()
+    { //afficher le catalogue
         $produits = produit::all();
 
         return view('catalogue', [
             'produits' => $produits
-            ]);
+        ]);
     }
 
-    public function pagination(){
+    public function pagination()
+    { //fonction pagination mais pas implémenter
 
         $produits = Produit::all();
         $produits = Produit::simplePaginate(2);
 
 
 
-        $produits = Produit::orderBy('created_at','desc')
+        $produits = Produit::orderBy('created_at', 'desc')
             ->simplepaginate(2);
 
-        return view('Produit/produit',[
-            'produits'=>$produits,
+        return view('Produit/produit', [
+            'produits' => $produits,
 
         ]);
     }
 
-    public function rechercher()
+    public function rechercher() //fonction pour rechercher umais pas implémenter
     {
         $produits = produit::all();
-        if(isset($_GET['recherche']) AND !empty($_GET['recherche'])) {
+        if (isset($_GET['recherche']) and !empty($_GET['recherche'])) {
             $recherche = htmlspecialchars($_GET['recherche']);
             $produits = $produits->where('nom', '=', $recherche);
-        if($articles->rowCount() == 0) {
-            $produits = $produits->where('nom', 'like', '%'.$recherche.'%'); 
+            if ($articles->rowCount() == 0) {
+                $produits = $produits->where('nom', 'like', '%' . $recherche . '%');
 
-        return view('catalogue', compact('produits'));
-    }
-}
+                return view('catalogue', compact('produits'));
+            }
+        }
     }
 }

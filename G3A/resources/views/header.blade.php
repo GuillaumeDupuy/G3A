@@ -5,65 +5,47 @@
 </style>
 
 <header class="page-header">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">G3A</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-8 col-xs-offset-2">
-                            <div class="input-group">
-                                <div class="input-group-btn search-panel">
-                                    <select class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                        <option>All</option>
-                                        <option>Action</option>
-                                        <option>Sport</option>
-                                        <option>Multijoueur</option>
-                                    </select>
-                                </div>
-
-                                <input type="hidden" name="search_param" value="all" id="search_param">
-                                <form action="/catalogue/rechercher" method="GET">
-                                    <input type="text" class="form-control" name="recherche" placeholder="Jeu...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search">Rechercher</span></button>
-                                    </span>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <form class="form-inline">
-            @if(!auth()->check())
-            <ul>
-                <button class="btn btn-outline-success" type="button"><a href="{{url('/')}}">Accueil</a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="{{url('/catalogue')}}">Tout les articles</a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="{{url('/inscription')}}">Inscription</a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="{{url('/connexion')}}">Connexion</a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="{{url('/contact')}}">Contact</a></button>
-
-            </ul>
-            @else
-            <ul>
-                <button class="btn btn-outline-success" type="button"><a href="{{url('/profil')}}">Profil</a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="{{url('/catalogue')}}">Tout les articles</a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="{{url('/contact')}}">Contact</a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="{{url('/panier')}}">Panier <span class=" badge badge-pill badge-dark"> {{ Cart::count() }}</span></a></button>
-
-                <button class="btn btn-outline-success" type="button"><a href="{{url('/deconnexion')}}">Deconnexion</a></button>
-
-            </ul>
-            @endif
-        </form>
-    </nav>
-
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{url('/')}}">Acceuil <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('/catalogue')}}">Catalogue</a>
+      </li>
+      @if(!auth()->check())
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/inscription')}}">Inscription</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{url('/connexion')}}">Connexion</a>
+        </li>
+        @else
+        <li class="nav-item">
+        <a class="nav-link" href="{{url('/profil')}}">Profil</a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link" href="{{url('/panier')}}">Panier</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{url('/contact')}}">Contact</a>
+      </li>
+      <li class="nav-item">
+            <a class="nav-link" href="{{url('/deconnexion')}}">Deconnexion</a>
+        </li>
+      @endif
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
 </header>

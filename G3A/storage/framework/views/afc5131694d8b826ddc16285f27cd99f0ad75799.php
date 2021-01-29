@@ -2,7 +2,12 @@
 
 
 <?php $__env->startSection('contenu'); ?>
+<?php if(session('success')): ?>
+        <div class="alert alert-success">
+            <?php echo e(session('success')); ?>
 
+        </div>
+    <?php endif; ?>
 <div class="container-fluid mt-3">
     <div class="d-flex flex-column align-items-center mt-3 mb-3">
         <h1>Bienvenue sur la référence gaming sur PC</h1>

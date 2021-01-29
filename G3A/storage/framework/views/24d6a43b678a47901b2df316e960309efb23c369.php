@@ -43,16 +43,17 @@
     <div>
         <input type="string" name="prenom" placeholder="Prenom">
         <?php if($errors->has('prenom')): ?>
-        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('prenon')); ?></small>
+        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('name')); ?></small>
         <?php endif; ?>
     </div>
 
     <div>
         <input type="string" name="nom" placeholder="Nom">
         <?php if($errors->has('nom')): ?>
-        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('name')); ?></small>
+        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('nom')); ?></small>
         <?php endif; ?>
     </div>
+    
     <div>
         <input type="email" name="email" placeholder="Email">
         <?php if($errors->has('email')): ?>
@@ -62,25 +63,56 @@
     </div>
 
     <div>
-        <input type="password" name="password" placeholder="Password">
-        <?php if($errors->has('password')): ?>
-        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('password')); ?></small>
+        <input type="date" name="dtn" placeholder="Date de naissance">
+        <?php if($errors->has('dtn')): ?>
+        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('dtn')); ?></small>
         <?php endif; ?>
     </div>
 
     <div>
-        <input type="password" name="password_confirmation" placeholder="Confirmation password">
-        <?php if($errors->has('password_confirmation')): ?>
-        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('password_confirmation')); ?></small>
+        <input type="string" name="adresse" placeholder="Adresse">
+        <?php if($errors->has('adresse')): ?>
+        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('adresse')); ?></small>
         <?php endif; ?>
     </div>
 
-    <div class="">
-        <label for="example-datetime-local-input" class="col-form-label">Date de naissance</label>
-        <input class="form-control" type="date" value="2000-04-20" id="example-date-input">
-    </div>
     <div>
-        <input type="submit" value="Valider">
+        <input type="string" name="ville" placeholder="Ville">
+        <?php if($errors->has('ville')): ?>
+        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('ville')); ?></small>
+        <?php endif; ?>
+    </div>
+
+    <div>
+        <input type="string" name="pays" placeholder="Pays">
+        <?php if($errors->has('pays')): ?>
+        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('pays')); ?></small>
+        <?php endif; ?>
+    </div>
+
+    <div>
+        <input type="string" name="code_postal" placeholder="Code postal">
+        <?php if($errors->has('code_postal')): ?>
+        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('code_postal')); ?></small>
+        <?php endif; ?>
+    </div>
+
+    <div>
+        <input type="password" name="mdp" placeholder="Mot de passe">
+        <?php if($errors->has('mdp')): ?>
+        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('mdp')); ?></small>
+        <?php endif; ?>
+    </div>
+
+    <div>
+        <input type="password" name="mdp_confirmation" placeholder="Confirmation mot de passe">
+        <?php if($errors->has('mdp_confirmation')): ?>
+        <small id="emailHelp" class="form-text text-muted"><?php echo e($errors->first('mdp_confirmation')); ?></small>
+        <?php endif; ?>
+    </div>
+
+    <div>
+        <input type="submit" value="Inscription">
     </div>
 
 </form>

@@ -15,11 +15,15 @@ class DatabaseSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    { //creation d'un admin et d'un membre
         User::create([
             'prenom' => 'Jeremy',
             'nom' => 'Masse',
             'email' => 'jeremy.masse@ynov.com',
+            'pays' => 'France',
+            'ville' => 'fosses',
+            'code_postal' => "95470",
+            'adresse' => "18dzf",
             'password' => bcrypt("test1234"),
             "dtn" => Carbon::create('2000', '30', '05'),
             'admin' => true
@@ -29,11 +33,15 @@ class DatabaseSeeder extends Seeder
             'prenom' => 'Guillaume',
             'nom' => 'Dupuy',
             'email' => 'guillaume.dupuy@ynov.com',
-            'password' => bcrypt("test1234"),
+            'ville' => 'Neuilly plaisance',
+            'code_postal' => 93360,
+            'adresse' => "1847dzgfg",
+            'pays' => 'France',
             "dtn" => Carbon::create('2001', '20', '07'),
+            'password' => bcrypt("test1234"),
             'admin' => false
         ]);
-
+        //remplissage bdd avec 9 jeux
         produit::create([
             'nom' => 'Call of Duty: Modern Warfare 3',
             'prix' => 10,
@@ -45,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'categorie' => "FPS",
             'note' => 3,
             'photo' => "produit_mw3.jfif"
-            ]);
+        ]);
 
         produit::create([
             'nom' => 'Call of Duty: Modern Warfare 3',
@@ -58,8 +66,8 @@ class DatabaseSeeder extends Seeder
             'categorie' => "FPS",
             'note' => 3,
             'photo' => "produit_mw3.jfif"
-            ]);
-        
+        ]);
+
         produit::create([
             'nom' => 'Hitman 3',
             'prix' => 60,
@@ -71,7 +79,7 @@ class DatabaseSeeder extends Seeder
             'categorie' => "Action",
             'note' => 4,
             'photo' => "produit_hitman3.jfif"
-            ]);
+        ]);
 
         produit::create([
             'nom' => 'Mario Kart 8',
@@ -84,7 +92,7 @@ class DatabaseSeeder extends Seeder
             'categorie' => "famille",
             'note' => 5,
             'photo' => "produit_mario_kart8.jfif"
-            ]);
+        ]);
         produit::create([
             'nom' => "Assassin's creed Valhalla",
             'prix' => 59.49,
@@ -96,7 +104,7 @@ class DatabaseSeeder extends Seeder
             'categorie' => "Combat",
             'note' => 5,
             'photo' => "produit_assassinscreed.jfif"
-            ]);
+        ]);
         produit::create([
             'nom' => 'Super Smash Bros. Ultimate',
             'prix' => 35.99,
@@ -108,7 +116,7 @@ class DatabaseSeeder extends Seeder
             'categorie' => "Combat",
             'note' => 3,
             'photo' => "produit_ssbu.jfif"
-            ]);
+        ]);
         produit::create([
             'nom' => 'Cyberpunk 2077',
             'prix' => 80,
@@ -120,7 +128,7 @@ class DatabaseSeeder extends Seeder
             'categorie' => "Action",
             'note' => 4,
             'photo' => "produit_cyberpunk.jfif"
-            ]);
+        ]);
         produit::create([
             'nom' => 'Watch Dogs: Legion',
             'prix' => 45,
@@ -132,7 +140,7 @@ class DatabaseSeeder extends Seeder
             'categorie' => "Action",
             'note' => 2,
             'photo' => "produit_watchdogs.jfif"
-            ]);
+        ]);
 
         produit::create([
             'nom' => 'Cyberpunk 2077',
@@ -145,6 +153,6 @@ class DatabaseSeeder extends Seeder
             'categorie' => "Action",
             'note' => 4,
             'photo' => "produit_cyberpunk.jfif"
-            ]);
+        ]);
     }
 }

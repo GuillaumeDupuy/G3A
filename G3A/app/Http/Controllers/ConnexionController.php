@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 
 class connexionController extends Controller
 {
-    public  function connexion(){
+    public  function connexion()
+    { //affichage  connexion
         return view('connexion');
     }
 
-    public function formulaire()
+    public function formulaire() //validation de la connexion
     {
         request()->validate([
             'email' => ['required', 'email'],

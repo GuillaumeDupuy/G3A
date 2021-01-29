@@ -7,31 +7,39 @@ use App\Models\User;
 
 class inscriptionController extends Controller
 {
-    public  function inscription(){
+    public  function inscription()
+    { //afficher page inscription
         return view('inscription');
     }
-    
-    public function formulaire(Request $request){
 
-        
+    public function formulaire(Request $request) //ajout d'un utilisateur à la bdd
+    {
         request()->validate([
-            'nom' =>['required'],
-            'prenom' =>['required'],
-            'email' =>['required','email'],
-            'dtn' =>['required'],
-            'password' =>['required','confirmed','min:8'],
-            'password_confirmation' => ['required'],
+            'nom' => ['required'],
+            'prenom' => ['required'],
+            'email' => ['required', 'email'],
+            'ville' => ['required'],
+            'adresse' => ['required'],
+            'pays' => ['required'],
+            'dtn' => ['required'],
+            'code_postal' => ['required'],
+            'mdp' => ['required', 'confirmed', 'min:8'],
+            'mdp_confirmation' => ['required'],
         ]);
-        dd($request->nom);
-        $user = User::create([ 
+        $date = date('Y-m-d', strtotime(str_replace('/', '-', $request->dtn)));
+        $user = User::create([
             'prenom' => request('prenom'),
             'nom' => request('nom'),
             'email' => request('email'),
-            'password' => bcrypt(request('password')), 
-            "dtn" => Carbon::create(request("dtn")),
+            'ville' => request('ville'),
+            'adresse' => request('adresse'),
+            'pays' => request('pays'),
+            'dtn' => $date,
+            'code_postal' => request("code_postal"),
+            'password' => bcrypt(request('mdp')),
         ]);
-        
-        
-        return "Your email is " . request('email');
+
+
+        return view('index')->with('success', "Vous etes bien inscrit");
     }
 }

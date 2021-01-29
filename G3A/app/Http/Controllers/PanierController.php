@@ -10,22 +10,21 @@ use App\Models\produit;
 
 class PanierController extends Controller
 {
-    public function panier()
+    public function panier() //affichage du panier
     {
         //dd(Cart::content());
         return view("panier");
     }
 
-    public function commande()
+    public function commande() //creation d'une commande mais pas implémenter pour la paiement
     {
         auth()->membre()->commande()->create([
             'date_commande' => Carbon::now(),
             'prix_commande' => 0,
             'statut' => "a payer",
         ]);
-        
     }
-    public function store(Request $request)
+    public function store(Request $request) //ajout d'un produit au panier
     {
         //Pour ne pas avoir de doublon
         // $doublon = Cart::search(function ($cartItem, $rowId) use ($request){
@@ -37,17 +36,18 @@ class PanierController extends Controller
         // }
         $produit = produit::find($request->produit);
         Cart::add($produit->id, $produit->nom, 1, $produit->prix)
-        ->associate('App\Models\produit');
+            ->associate('App\Models\produit');
 
         return back()->with('success', 'Le produit a été ajouté au panier');
     }
 
-    public function supprimer($rowId){
+    public function supprimer($rowId)
+    { //supprimer un item du panier
         Cart::remove($rowId);
         return back()->with('success', 'Le produit a été supprimé.');
     }
 
-    public function supprimer_cart()
+    public function supprimer_cart() //supprimer le panier entier
     {
         Cart::destroy();
         return back()->with('success', 'votre panier a bien été vidé');

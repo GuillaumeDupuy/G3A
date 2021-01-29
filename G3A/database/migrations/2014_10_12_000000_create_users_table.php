@@ -19,9 +19,10 @@ class CreateUsersTable extends Migration
             $table->string("nom", 20);
             $table->string('email')->unique();
             $table->date("dtn");
-            $table->string("adresse")->default('');
-            $table->string("ville")->default('');
-            $table->string("code_postal", 5)->default(0);
+            $table->string("adresse");
+            $table->string("ville");
+            $table->string("pays");
+            $table->string("code_postal", 5);
             $table->decimal("soldes", 6, 2)->default(0);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

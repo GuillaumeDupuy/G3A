@@ -2,7 +2,11 @@
 @extends('layout')
 
 @section('contenu')
-
+@if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
 <div class="container-fluid mt-3">
     <div class="d-flex flex-column align-items-center mt-3 mb-3">
         <h1>Bienvenue sur la référence gaming sur PC</h1>

@@ -19,6 +19,7 @@ Route::group([
     Route::post('/password_modification', 'App\Http\Controllers\UserAccountController@password_modification');
     Route::get('/password_modification', 'App\Http\Controllers\UserAccountController@form_password_modification');
     Route::get('/profil', 'App\Http\Controllers\UserAccountController@profil');
+    Route::post('/profil/update', 'App\Http\Controllers\UserAccountController@modifier_profil');
     Route::get('/deconnexion', 'App\Http\Controllers\UserAccountController@deconnexion');
 });
 
@@ -33,7 +34,7 @@ Route::get('/contact', function () {
 Route::get('/produit/{id}', [
     'as' => 'produit',
     'uses' => '\App\Http\Controllers\ProduitController@produit'
-] ); //affichage d'un produit selon son id
+]); //affichage d'un produit selon son id
 
 Route::post('/connexion', 'App\Http\Controllers\ConnexionController@formulaire'); //affichage de la page connexion
 Route::get('/connexion', 'App\Http\Controllers\ConnexionController@connexion'); //validation du formulaire connexion
@@ -53,7 +54,7 @@ route::get('/catalogue/rechercher', 'App\Http\Controllers\CatalogueController@re
 //Route::post('/upload', 'App\Http\Controllers\FileUploadController@storeUploads');
 
 route::get('/panier', 'App\Http\Controllers\PanierController@panier'); //affichage du panier
-route::post('/panier/ajouter', 'App\Http\Controllers\PanierController@store');//ajouter un produit
+route::post('/panier/ajouter', 'App\Http\Controllers\PanierController@store'); //ajouter un produit
 route::get('/paniervider', 'App\Http\Controllers\PanierController@supprimer_cart'); //suprimer le panier
 Route::delete('/panier/{rowId}', 'App\Http\Controllers\PanierController@supprimer'); //suprimer un produit
 

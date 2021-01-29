@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 class FileUploadController extends Controller
 {
+
+    //essaie de l'implémentation de cloudinary
     public function showUploadForm()
     {
         return view('upload');
